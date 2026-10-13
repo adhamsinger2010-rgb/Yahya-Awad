@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الأستاذ يحيى عوض - التاريخ المصري</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <!-- شاشة تسجيل الدخول الكبيرة والواضحة لجميع الأجهزة -->
+    <div class="login-wrapper" id="login-section">
+        
+        <div class="top-contact-banner">
+            <a href="https://adham-singer.github.io/adhamsinger/" target="_blank" class="contact-pill website">
+                <i class="fa-solid fa-globe"></i>
+                <span>الموقع الرسمي للمطور (أدهم سنجر)</span>
+            </a>
+            
+            <a href="https://wa.me/201100784384" target="_blank" class="contact-pill teacher">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>واتساب الأستاذ يحيى عوض: <b dir="ltr">01100784384</b></span>
+            </a>
+
+            <a href="https://wa.me/201102941240" target="_blank" class="contact-pill admin">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>واتساب إدارة المنصة والدعم: <b dir="ltr">01102941240</b></span>
+            </a>
+        </div>
+
+        <div class="login-card">
+            <h2>منصة الأستاذ يحيى عوض</h2>
+            <p class="subtitle">المنصة التعليمية المخصصة لمادة التاريخ المصري</p>
+            
+            <div class="input-group">
+                <label><i class="fa-regular fa-user"></i> اسم المستخدم (Username)</label>
+                <input type="text" id="username" placeholder="أدخل اسم المستخدم الخاص بك">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-lock"></i> كود الدخول (Passcode)</label>
+                <input type="password" id="usercode" placeholder="أدخل الكود الخاص بك">
+            </div>
+
+            <button class="btn-primary-glow" onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> دخول المنصة التعليمية</button>
+            <p id="error-msg" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- شاشة عرض الوحدات والمحاضرات -->
+    <div class="main-container" id="platform-section" style="display: none;">
+        <header class="top-bar">
+            <div class="user-info">
+                <div class="avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                <div>
+                    <h2 id="welcome-user">أهلاً بك</h2>
+                    <span class="status-online">● متصل الآن بالمنصة</span>
+                </div>
+            </div>
+            <button class="btn-logout" onclick="logout()"><i class="fa-solid fa-power-off"></i> خروج</button>
+        </header>
+
+        <div class="section-title-box">
+            <h3><i class="fa-solid fa-landmark"></i> وحدات ومحاضرات التاريخ المصري</h3>
+            <p>اختر الوحدة الدراسية لمتابعة الشرح والامتحانات</p>
+        </div>
+
+        <div id="courses-container" class="courses-grid"></div>
+    </div>
+
+    <!-- شاشة مشاهدة الفيديو -->
+    <div class="main-container" id="video-player-section" style="display: none;">
+        <div class="player-header">
+            <button class="btn-back" onclick="backToCourses()"><i class="fa-solid fa-arrow-right"></i> العودة للوحدات</button>
+            <h2 id="current-course-title" class="glow-title"></h2>
+        </div>
+        
+        <div class="content-split">
+            <div class="video-box">
+                <div class="shield-top"></div>
+                <div class="shield-bottom"></div>
+                <iframe id="main-video-frame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="sidebar-box">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="switchTab('videos')"><i class="fa-solid fa-circle-play"></i> المحاضرات</button>
+                    <button class="tab-btn" onclick="switchTab('homework')"><i class="fa-solid fa-file-circle-check"></i> الواجب والامتحان</button>
+                </div>
+
+                <div id="tab-videos" class="tab-content active">
+                    <div id="playlist-items"></div>
+                </div>
+
+                <div id="tab-homework" class="tab-content">
+                    <div id="homework-items"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
